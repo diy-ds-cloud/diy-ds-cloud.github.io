@@ -1,6 +1,6 @@
 FROM jupyter/scipy-notebook:2fee7b754cbe AS base-python
 
-RUN pip install jupyter-book ghp-import
+RUN pip install jupyter-book==0.12.2 ghp-import
 
 FROM base-python AS dev-python
 

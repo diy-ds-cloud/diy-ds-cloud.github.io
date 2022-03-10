@@ -5,7 +5,8 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -19,11 +20,6 @@ jobs:
           load: true
           tags: dddlab/base-python:latest
           target: base-python
-      -
-        name: Test container
-        run: |
-          docker run --rm dddlab/base-python:latest jupyter-book --version
-      -
-        name: Build book
+      - name: Build book
         run: |
           docker run --rm -v ${PWD}/diy_ds_cloud_book:/home/jovyan/diy_ds_cloud_book --user root dddlab/base-python:latest jupyter-book build diy_ds_cloud_book
