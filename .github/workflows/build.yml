@@ -26,4 +26,4 @@ jobs:
       -
         name: Build book
         run: |
-          docker run -it --rm -v ${PWD}/diy_ds_cloud_book:/home/jovyan/diy_ds_cloud_book diy-ds-cloud/jupbook:latest jupyter-book build diy_ds_cloud_book
+          docker run --rm -v ${PWD}/diy_ds_cloud_book:/home/jovyan/diy_ds_cloud_book diy-ds-cloud/jupbook:latest jupyter-book build diy_ds_cloud_book
