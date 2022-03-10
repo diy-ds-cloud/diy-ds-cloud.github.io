@@ -7,8 +7,8 @@ services:
     image: dddlab/base-python:latest
 
     build:
-      context: ./
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: .devcontainer/Dockerfile
       target: base-python
 
     ports:
