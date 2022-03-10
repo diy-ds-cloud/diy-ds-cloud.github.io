@@ -7,7 +7,7 @@
 
 	"service": "jupyterlab",
 
-	"workspaceFolder": "/home/jovyan",
+	"workspaceFolder": "/home/jovyan/work",
 
 	"extensions": [
 		"ms-python.python",

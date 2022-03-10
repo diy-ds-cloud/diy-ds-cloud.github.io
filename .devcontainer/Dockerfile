@@ -1,5 +1,9 @@
 FROM jupyter/scipy-notebook:2fee7b754cbe AS base-python
 
+RUN pip install jupyter-book==0.12.2 ghp-import
+
+FROM base-python AS dev-python
+
 USER root
 
 RUN apt-get update && \
@@ -19,6 +23,3 @@ USER ${NB_USER}
 # prevents complaints about group write permissions for ohmyzsh
 ENV ZSH_DISABLE_COMPFIX=true
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-COPY --chown=${NB_UID}:${NB_GID} requirements.txt requirements.txt
-RUN pip install -r requirements.txt
