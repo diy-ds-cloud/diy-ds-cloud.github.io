@@ -9,7 +9,7 @@ services:
     build:
       context: ../
       dockerfile: .devcontainer/Dockerfile
-      target: base-python
+      target: dev-python
 
     ports:
       - 443:8888
