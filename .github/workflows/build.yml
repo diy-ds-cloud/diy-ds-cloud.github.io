@@ -14,15 +14,15 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
-          key: buildx-${{ hashFiles('\.devcontainer/Dockerfile') }}
+          key: buildx-${{ hashFiles('Dockerfile') }}
           restore-keys: |
             buildx-
       - name: Build base image
         id: docker_build_base
         uses: docker/build-push-action@v2
         with:
-          context: .devcontainer/
-          file: Dockerfile
+          context: .
+          file: .devcontainer/Dockerfile
           push: false
           load: false
           cache-from: type=local,src=/tmp/.buildx-cache
