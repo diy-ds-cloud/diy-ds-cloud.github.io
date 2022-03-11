@@ -25,7 +25,12 @@ jobs:
         load: true
     - name: Build book
       run: |
-        docker run --rm -v ${PWD}/diy_ds_cloud_book:/home/jovyan/diy_ds_cloud_book --user root dddlab/base-python:latest jupyter-book build diy_ds_cloud_book
+        docker run \
+          --rm \
+          -u root \
+          -v ${PWD}/diy_ds_cloud_book:/home/jovyan/diy_ds_cloud_book \
+          dddlab/base-python:latest \
+          jupyter-book build diy_ds_cloud_book
     - name: Copy to GitHub Pages branch
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
